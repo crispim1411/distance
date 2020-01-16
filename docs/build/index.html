@@ -1,0 +1,235 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Configuração do Ambiente do Projeto &#8212; distance 0.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="configuracao-do-ambiente-do-projeto">
+<h1>Configuração do Ambiente do Projeto<a class="headerlink" href="#configuracao-do-ambiente-do-projeto" title="Permalink to this headline">¶</a></h1>
+<p>Código para retornar e plotar a distância entre um ponto e uma curva.</p>
+<div class="section" id="overview-sobre-como-rodar">
+<h2>Overview sobre como rodar<a class="headerlink" href="#overview-sobre-como-rodar" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Crie um ambiente virtual Python utilizando Poetry</p></li>
+<li><p>Instale os pacotes requeridos</p></li>
+<li><p>Instale a biblioteca de Python para plot</p></li>
+<li><p>Execute o código</p></li>
+</ol>
+</div>
+<div class="section" id="procedimento-de-setup">
+<h2>Procedimento de setup<a class="headerlink" href="#procedimento-de-setup" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Criar um ambiente com Poetry:</p>
+<ul class="simple">
+<li><p>poetry init</p></li>
+<li><p>poetry shell</p></li>
+</ul>
+</li>
+<li><p>Instalar os pacotes Numpy, Scipy e Matplotlib</p>
+<ul class="simple">
+<li><p>poetry add numpy scipy matplotlib</p></li>
+</ul>
+</li>
+<li><p>Instalar python3-tk para plotagem</p>
+<ul class="simple">
+<li><p>sudo apt install python3-tk -y</p></li>
+</ul>
+</li>
+<li><p>Executar</p>
+<ul class="simple">
+<li><p>python distance</p></li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="uso">
+<h2>Uso<a class="headerlink" href="#uso" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Introduzir as coordenadas x,y do ponto e a função ao fim será retornada a distância e o gráfico da função.</dt><dd><ul>
+<li><p>A função pode ser polinomial, exponencial, senoidal, etc</p></li>
+<li><p>A descrição dos elementos das funções seguem o formato <span class="math notranslate nohighlight">\({c1*x**p1 + c2*x**p2} = c1x^{p1}+c2x^{p2}\)</span></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="documentar-codigo">
+<h2>Documentar código<a class="headerlink" href="#documentar-codigo" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Instalar Sphinx
+* sudo apt install python3-sphinx</p></li>
+<li><p>Iniciar
+* sphinx-quickstart</p></li>
+<li><p>Configurar estrutura de documentação
+* arquivos conf.py e index.rst na pasta source</p></li>
+<li><p>Construir documentação em html
+* sphinx-build -b html source build</p></li>
+</ol>
+</div>
+<div class="section" id="documentacao-do-codigo">
+<h2>Documentação do código<a class="headerlink" href="#documentacao-do-codigo" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+</div>
+<span class="target" id="module-distance"></span><dl class="function">
+<dt id="distance.build_functions">
+<code class="sig-prename descclassname">distance.</code><code class="sig-name descname">build_functions</code><span class="sig-paren">(</span><em class="sig-param">p</em><span class="sig-paren">)</span><a class="headerlink" href="#distance.build_functions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constroi funções usando variável simbólica e lambda</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>p</strong> (<em>tuple</em>) – ponto para o qual é calculada distância</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>curva f(x), derivada da curva f(x), derivada da distância</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p>Falha ao construir funções: Erro</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="distance.fplot">
+<code class="sig-prename descclassname">distance.</code><code class="sig-name descname">fplot</code><span class="sig-paren">(</span><em class="sig-param">f</em>, <em class="sig-param">distance</em>, <em class="sig-param">p</em>, <em class="sig-param">q</em><span class="sig-paren">)</span><a class="headerlink" href="#distance.fplot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plota o gráfico de f(x) e uma reta traçando a distância do ponto P à curva.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f</strong> (<em>function</em>) – curva f(x)</p></li>
+<li><p><strong>distance</strong> (<em>float</em>) – distância de P à f(x)</p></li>
+<li><p><strong>p</strong> (<em>tuple</em>) – ponto P</p></li>
+<li><p><strong>q</strong> (<em>tuple</em>) – ponto sobre a curva</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="distance.get_distance">
+<code class="sig-prename descclassname">distance.</code><code class="sig-name descname">get_distance</code><span class="sig-paren">(</span><em class="sig-param">p1</em>, <em class="sig-param">p2</em><span class="sig-paren">)</span><a class="headerlink" href="#distance.get_distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retorna a distância entre os pontos P1 e P2.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p1</strong> (<em>tuple</em>) – coordenadas (x,y) do ponto P1</p></li>
+<li><p><strong>p2</strong> (<em>tuple</em>) – coordenadas (x,y) do ponto P2</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>distância</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p>Não foi possível obter distância entre p1 e p2: Erro</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="indices-and-tabelas">
+<h2>Índices and tabelas<a class="headerlink" href="#indices-and-tabelas" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">distance</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Rodrigo Crispim.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
