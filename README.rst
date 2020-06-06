@@ -33,7 +33,7 @@ Uso
 ====
 * Introduzir as coordenadas x,y do ponto e a função ao fim será retornada a distância e o gráfico da função.
    * A função pode ser polinomial, exponencial, senoidal, etc
-   * A descrição dos elementos das funções seguem o formato :math:`{c1*x**p1 + c2*x**p2} = c1x^{p1}+c2x^{p2}`
+   * A descrição dos elementos da funções seguem o formato da linguagem Python, então para representar um elemento de coeficiente 3 atrelado a um termo x de expoente 2 resultará 3*x**2
 
 Documentar código
 ==================
