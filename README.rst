@@ -27,7 +27,7 @@ Procedimento de setup
 
 #. Executar
 
-   * python distance
+   * python3 distance
 
 Uso
 ====
@@ -38,13 +38,17 @@ Uso
 Documentar código
 ==================
 #. Instalar Sphinx
+
    * sudo apt install python3-sphinx
 
 #. Iniciar
+
    * sphinx-quickstart
 
 #. Configurar estrutura de documentação
+
    * arquivos conf.py e index.rst na pasta source
 
 #. Construir documentação em html
+
    * sphinx-build -b html source build
